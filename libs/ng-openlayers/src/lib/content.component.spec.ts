@@ -1,0 +1,28 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ContentComponent } from './content.component';
+
+describe('ContentComponent', () => {
+  let component: ContentComponent;
+  let fixture: ComponentFixture<ContentComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ContentComponent]
+    }).compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ContentComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should have element reference', () => {
+    expect(component.elementRef).toBeTruthy();
+    expect(component.elementRef.nativeElement instanceof HTMLElement).toBeTruthy();
+  });
+});

@@ -1,6 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+const { join } = require('path');
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -10,6 +11,7 @@ module.exports = function (config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
+      require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
     client: {
@@ -28,5 +30,10 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true,
+    coverageReporter: {
+      dir: require('path').join(__dirname, '../../coverage/ng-openlayers'),
+      subdir: '.',
+      reporters: [{ type: 'html' }, { type: 'text-summary' }],
+    },
   });
 };
